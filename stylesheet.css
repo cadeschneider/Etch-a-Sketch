@@ -1,0 +1,13 @@
+.canvas{
+     display: flex;
+     flex-wrap: wrap;
+     background-color: blue;
+     height: 400px;
+     width: 400px;
+}
+
+div{
+     background-color: red;
+     width: 25px;
+     height: 25px;
+}
