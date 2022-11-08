@@ -1,13 +1,68 @@
-.canvas{
+body{
+     background-color: #FCFCFC;
+}
+
+header{
+     text-align: center;
+     font-size: 5em;
+     font-weight: bold;
+}
+
+main {
+     margin-top: 5%;
      display: flex;
-     flex-wrap: wrap;
-     background-color: blue;
+     flex-wrap: wrap-reverse;
+     justify-content: center;
+}
+
+#canvas, #settings {
      height: 400px;
      width: 400px;
 }
 
+#settings {
+     display: flex;
+     flex-direction: column;
+     justify-content: space-evenly;
+     background-color: transparent;
+    
+}
+
+p {
+     display: flex;
+     flex-direction: column;
+     justify-content: space-evenly;
+     background-color: transparent;
+}
+
+span {
+     text-align: center;
+     margin: 1%
+}
+
+button {
+     height: 60px;
+     border-radius: 25px;
+     opacity: 0.7;
+}
+
+input, button, span {
+     width: 300px;
+     cursor: pointer;
+}
+
+input:hover, button:hover {
+     opacity: 1;
+}
+
+#canvas{
+     display: grid;
+     grid-template-columns: repeat(16, 1fr);
+     border-style: solid;
+     border-color: black;
+}
+
 div{
-     background-color: red;
-     width: 25px;
-     height: 25px;
+     background-color: white;
+     aspect-ratio: 1;
 }

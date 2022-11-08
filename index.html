@@ -9,14 +9,22 @@
     <script src="sketch.js" defer></script>
 </head>
 <body>
+
+    <header>ETCH-A-SKETCH</header>
     
-    <section>
-        <input type="range" min="16" max="64" value="16" class="slider" id="density">
-    </section>
+    <main>
+        <section id="settings">
+            <p><span id="displaySize"></span>
+            <input type="range" min="16" max="64" value="16" class="slider" id="density"></p>
+            <button id="colorBtn">Color</button>
+            <button id="sprinklesBtn">Sprinkles</button>
+            <button id="eraserBtn">Eraser</button>
+            <button id="clearBtn">Clear</button>
+        </section>
 
-    <section class="canvas">
+        <section id="canvas">
 
-    </section>
-
+        </section>
+    </main>
 </body>
 </html>
