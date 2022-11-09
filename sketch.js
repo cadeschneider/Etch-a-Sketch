@@ -19,18 +19,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     //Function to set listen for hovering mouse on pixels
     function setListener(color="black"){
-        // if (color === "sprinkles") {
-        //     const pixels = document.querySelectorAll('div');
-        //     pixels.forEach( item => item.addEventListener('mouseover', function(event){
-        //         item.setAttribute('style',`background-color:${getSprinkles()};`);
-        //     }));
-        // } else {
             const pixels = document.querySelectorAll('div');
             pixels.forEach( item => item.addEventListener('mouseover', function(event){
-                item.setAttribute('style',`background-color:${color};`);
-        //     }));
-
-        // }
+                if (color === "sprinkles"){
+                   item.setAttribute('style',`background-color:${getSprinkles()};`); 
+                } else {
+                    item.setAttribute('style',`background-color:${color};`);
+                } 
+            }));
     }
 
     //Function that initiates canvas size and adds listeners
@@ -72,5 +68,4 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }
 
     }));
-
 });
