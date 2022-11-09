@@ -21,11 +21,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
     function setListener(color="black"){
             const pixels = document.querySelectorAll('div');
             pixels.forEach( item => item.addEventListener('mouseover', function(event){
-                if (color === "rainbows"){
-                   item.setAttribute('style',`background-color:${getRainbows()};`); 
-                } else {
-                    item.setAttribute('style',`background-color:${color};`);
-                } 
+                if (color === "rainbows") color = getRainbows() 
+                item.setAttribute('style',`background-color:${color};`);
             }));
     }
 
