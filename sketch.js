@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             container.appendChild(pixel.cloneNode(true));
     }}
 
-    function getSprinkles(){
+    function getRainbows(){
         var letters = '0123456789ABCDEF';
         var color = '#';
         for (var i = 0; i < 6; i++) {
@@ -21,8 +21,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
     function setListener(color="black"){
             const pixels = document.querySelectorAll('div');
             pixels.forEach( item => item.addEventListener('mouseover', function(event){
-                if (color === "sprinkles"){
-                   item.setAttribute('style',`background-color:${getSprinkles()};`); 
+                if (color === "rainbows"){
+                   item.setAttribute('style',`background-color:${getRainbows()};`); 
                 } else {
                     item.setAttribute('style',`background-color:${color};`);
                 } 
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }else if (e.target.id === "colorBtn"){
             setListener("red");
         }else if (e.target.id === "sprinklesBtn"){
-            setListener("sprinkles");
+            setListener("rainbows");
         }
 
     }));
