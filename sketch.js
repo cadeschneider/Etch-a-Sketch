@@ -6,22 +6,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
             container.appendChild(pixel.cloneNode(true));
     }}
 
-    function getRainbows(){
-        var letters = '0123456789ABCDEF';
-        var color = '#';
-        for (var i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-        }
-        console.log((color));
-        return color;
-        
-    }
 
     //Function to set listen for hovering mouse on pixels
     function setListener(color="black"){
             const pixels = document.querySelectorAll('div');
             pixels.forEach( item => item.addEventListener('mouseover', function(event){
-                if (color === "rainbows") color = getRainbows() 
+                if (color === "rainbows") color = "green" 
                 item.setAttribute('style',`background-color:${color};`);
             }));
     }
