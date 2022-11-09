@@ -12,25 +12,25 @@ document.addEventListener("DOMContentLoaded", function(event) {
         for (var i = 0; i < 6; i++) {
         color += letters[Math.floor(Math.random() * 16)];
         }
-        console.log(color);
+        console.log((color));
         return color;
         
     }
 
     //Function to set listen for hovering mouse on pixels
     function setListener(color="black"){
-        if (color === "sprinkles") {
-            const pixels = document.querySelectorAll('div');
-            pixels.forEach( item => item.addEventListener('mouseover', function(event){
-                item.setAttribute('style',`background-color:${getSprinkles()};`);
-            }));
-        } else {
+        // if (color === "sprinkles") {
+        //     const pixels = document.querySelectorAll('div');
+        //     pixels.forEach( item => item.addEventListener('mouseover', function(event){
+        //         item.setAttribute('style',`background-color:${getSprinkles()};`);
+        //     }));
+        // } else {
             const pixels = document.querySelectorAll('div');
             pixels.forEach( item => item.addEventListener('mouseover', function(event){
                 item.setAttribute('style',`background-color:${color};`);
-            }));
+        //     }));
 
-        }
+        // }
     }
 
     //Function that initiates canvas size and adds listeners
