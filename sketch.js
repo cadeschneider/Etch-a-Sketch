@@ -6,14 +6,31 @@ document.addEventListener("DOMContentLoaded", function(event) {
             container.appendChild(pixel.cloneNode(true));
     }}
 
+    function getSprinkles(){
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+        }
+        console.log((color));
+        return color;
+        
+    }
 
     //Function to set listen for hovering mouse on pixels
     function setListener(color="black"){
+        // if (color === "sprinkles") {
+        //     const pixels = document.querySelectorAll('div');
+        //     pixels.forEach( item => item.addEventListener('mouseover', function(event){
+        //         item.setAttribute('style',`background-color:${getSprinkles()};`);
+        //     }));
+        // } else {
             const pixels = document.querySelectorAll('div');
             pixels.forEach( item => item.addEventListener('mouseover', function(event){
-                if (color === "rainbows") color = "green" 
                 item.setAttribute('style',`background-color:${color};`);
-            }));
+        //     }));
+
+        // }
     }
 
     //Function that initiates canvas size and adds listeners
@@ -51,8 +68,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }else if (e.target.id === "colorBtn"){
             setListener("red");
         }else if (e.target.id === "sprinklesBtn"){
-            setListener("rainbows");
+            setListener("sprinkles");
         }
 
     }));
+
 });
