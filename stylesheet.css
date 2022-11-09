@@ -55,6 +55,11 @@ input:hover, button:hover {
      opacity: 1;
 }
 
+button:focus {
+     background-color: grey;
+     font-style: black;
+}
+
 #canvas{
      display: grid;
      grid-template-columns: repeat(16, 1fr);
