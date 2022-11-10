@@ -17,6 +17,25 @@ document.addEventListener("DOMContentLoaded", function(event) {
         
     }
 
+    function getShading(hexColor, magnitude){
+        hexColor = hexColor.replace(`#`, ``);
+        if (hexColor.length === 6) {
+            const decimalColor = parseInt(hexColor, 16);
+            let r = (decimalColor >> 16) + magnitude;
+            r > 255 && (r = 255);
+            r < 0 && (r = 0);
+            let g = (decimalColor & 0x0000ff) + magnitude;
+            g > 255 && (g = 255);
+            g < 0 && (g = 0);
+            let b = ((decimalColor >> 8) & 0x00ff) + magnitude;
+            b > 255 && (b = 255);
+            b < 0 && (b = 0);
+            return `#${(g | (b << 8) | (r << 16)).toString(16)}`;
+        } else {
+            return hexColor;
+        }
+    }
+
     //Function to set listen for hovering mouse on pixels
     function setListener(color="black"){
         if (color === "sprinkles") {
@@ -24,7 +43,21 @@ document.addEventListener("DOMContentLoaded", function(event) {
             pixels.forEach( item => item.addEventListener('mouseover', function(event){
                 item.setAttribute('style',`background-color:${getSprinkles()};`);
             }));
-        } else {
+        } else if (color === "modern") {
+            color = "blue"
+            const pixels = document.querySelectorAll('div');
+            pixels.forEach( item => item.addEventListener('mouseover', function(event){
+                    if (item.style.backgroundColor == "black"){
+                        color = "#808080"
+                        console.log("poop")
+                    }else {
+                        color = getShading(item.style.backgroundColor,-10);
+                    }
+                    console.log(item.style.backgroundColor)
+                    item.setAttribute('style',`background-color:${color};`);
+            }));
+
+        }else {
             const pixels = document.querySelectorAll('div');
             pixels.forEach( item => item.addEventListener('mouseover', function(event){
                 item.setAttribute('style',`background-color:${color};`);
@@ -66,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }else if (e.target.id === "eraserBtn"){
             setListener("white");
         }else if (e.target.id === "colorBtn"){
-            setListener("red");
+            setListener("modern");
         }else if (e.target.id === "sprinklesBtn"){
             setListener("sprinkles");
         }
