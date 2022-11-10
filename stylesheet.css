@@ -1,11 +1,13 @@
 body{
-     background-color: #FCFCFC;
+     background-color: rgb(237,237,237);
+     font-family: 'Courier New', monospace;
 }
 
 header{
      text-align: center;
      font-size: 5em;
      font-weight: bold;
+     color: #0075ff;
 }
 
 main {
@@ -33,6 +35,7 @@ p {
      flex-direction: column;
      justify-content: space-evenly;
      background-color: transparent;
+     color: rgb(51,51,51); 
 }
 
 span {
@@ -42,29 +45,42 @@ span {
 
 button {
      height: 60px;
-     border-radius: 25px;
-     opacity: 0.7;
+     border-radius: 25px; 
+     border: 1px solid #b2b2b2;
+     background-color: transparent;
+     color: rgb(51,51,51);   
 }
 
 input, button, span {
      width: 300px;
      cursor: pointer;
+     font-weight: bold;
 }
 
 input:hover, button:hover {
      opacity: 1;
 }
 
+#colorBtn {
+     width: 75px;
+     opacity: 75%;
+     border: transparent;
+}
+
 button:focus {
-     background-color: grey;
-     font-style: black;
+     background-color: rgb(51,51,51);
+     opacity: 1;
+     color: rgb(237,237,237)
+}
+
+#colorBtn:focus{
+     opacity: 1;
 }
 
 #canvas{
      display: grid;
      grid-template-columns: repeat(16, 1fr);
-     border-style: solid;
-     border-color: black;
+     box-shadow: rgba(0,0,0,0.24) 0px 3px 8px;
 }
 
 div{

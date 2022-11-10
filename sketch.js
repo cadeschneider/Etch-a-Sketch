@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             container.appendChild(pixel.cloneNode(true));
     }}
 
+    //Function that generates random colors
     function getSprinkles(){
         var letters = '0123456789ABCDEF';
         var color = '#';
@@ -14,26 +15,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }
         console.log(color);
         return color;
-        
-    }
-
-    function getShading(hexColor, magnitude){
-        hexColor = hexColor.replace(`#`, ``);
-        if (hexColor.length === 6) {
-            const decimalColor = parseInt(hexColor, 16);
-            let r = (decimalColor >> 16) + magnitude;
-            r > 255 && (r = 255);
-            r < 0 && (r = 0);
-            let g = (decimalColor & 0x0000ff) + magnitude;
-            g > 255 && (g = 255);
-            g < 0 && (g = 0);
-            let b = ((decimalColor >> 8) & 0x00ff) + magnitude;
-            b > 255 && (b = 255);
-            b < 0 && (b = 0);
-            return `#${(g | (b << 8) | (r << 16)).toString(16)}`;
-        } else {
-            return hexColor;
-        }
     }
 
     //Function to set listen for hovering mouse on pixels
@@ -43,26 +24,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
             pixels.forEach( item => item.addEventListener('mouseover', function(event){
                 item.setAttribute('style',`background-color:${getSprinkles()};`);
             }));
-        } else if (color === "modern") {
-            color = "blue"
-            const pixels = document.querySelectorAll('div');
-            pixels.forEach( item => item.addEventListener('mouseover', function(event){
-                    if (item.style.backgroundColor == "black"){
-                        color = "#808080"
-                        console.log("poop")
-                    }else {
-                        color = getShading(item.style.backgroundColor,-10);
-                    }
-                    console.log(item.style.backgroundColor)
-                    item.setAttribute('style',`background-color:${color};`);
-            }));
-
         }else {
             const pixels = document.querySelectorAll('div');
             pixels.forEach( item => item.addEventListener('mouseover', function(event){
                 item.setAttribute('style',`background-color:${color};`);
             }));
-
         }
     }
 
@@ -74,6 +40,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         container.setAttribute('style',`background-color:white; grid-template-columns: repeat(${size}, 1fr);`);
     }
 
+    //Initialize page
     const container = document.querySelector('#canvas');
     const pixel = document.createElement('div');
 
@@ -91,6 +58,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         setUp(this.value);
     };
 
+    //Set up responsive buttons
     const btn = document.querySelectorAll("button");
     btn.forEach( item => item.addEventListener('click', function(e){
 
@@ -99,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }else if (e.target.id === "eraserBtn"){
             setListener("white");
         }else if (e.target.id === "colorBtn"){
-            setListener("modern");
+            setListener(e.target.textContent);
         }else if (e.target.id === "sprinklesBtn"){
             setListener("sprinkles");
         }
